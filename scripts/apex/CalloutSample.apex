@@ -1,4 +1,4 @@
-String END_POINT = 'https://th-apex-http-callout.herokuapp.com/animals';
+String END_POINT = 'https://api.github.com/users/hadley/orgs';
 
 Http http = new Http();
 HttpRequest request = new HttpRequest();
@@ -12,8 +12,7 @@ HttpResponse response = http.send(request);
 //check the response
 if (response.getStatusCode() == 200) {
   // parse the response JSON
-  AnimalResponse animalresponse = AnimalResponse.parse(response.getBody());
-  system.debug('ANIMALS ---- ' + animalresponse.animals);
+  system.debug(response.getBody());
 } else {
   system.debug('Error' + response.getStatus() + ' ' + response.getStatusCode());
 }
